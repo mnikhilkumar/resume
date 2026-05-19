@@ -1,0 +1,221 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+.hero{background:linear-gradient(135deg,#042C53 0%,#0C447C 55%,#185FA5 100%);padding:2.5rem 2rem 2.75rem;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-80px;right:-50px;width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,0.05)}
+.avatar{width:68px;height:68px;border-radius:50%;background:#E6F1FB;display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:24px;color:#0C447C;margin-bottom:1rem;border:3px solid rgba(255,255,255,0.2)}
+.hero h1{font-family:'DM Serif Display',serif;font-size:26px;color:#fff;font-weight:400;line-height:1.2;margin-bottom:4px}
+.hero .role{font-size:13px;color:#85B7EB;font-weight:500;letter-spacing:0.05em;margin-bottom:4px}
+.hero .company{font-size:13px;color:#B5D4F4;margin-bottom:1.25rem}
+.stat-row{display:flex;gap:20px;margin-bottom:1.4rem}
+.stat{text-align:center}
+.stat-num{font-size:20px;font-weight:500;color:#fff;font-family:'DM Serif Display',serif}
+.stat-label{font-size:11px;color:#85B7EB;letter-spacing:0.04em}
+.badges{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:1.5rem}
+.badge{background:rgba(255,255,255,0.1);border:0.5px solid rgba(255,255,255,0.18);color:#E6F1FB;font-size:12px;padding:4px 11px;border-radius:20px}
+.open-badge{background:rgba(56,183,100,0.2);border:0.5px solid rgba(56,183,100,0.4);color:#a3f0bc;font-size:12px;padding:4px 11px;border-radius:20px;display:flex;align-items:center;gap:5px}
+.open-dot{width:7px;height:7px;border-radius:50%;background:#4ade80}
+.contact-row{display:flex;flex-wrap:wrap;gap:10px}
+.contact-item{display:flex;align-items:center;gap:5px;color:#B5D4F4;font-size:12px}
+.contact-item i{font-size:14px;color:#85B7EB}
+.contact-item a{color:#B5D4F4;text-decoration:none}
+.contact-item a:hover{color:#fff}
+.body{padding:1.5rem}
+.section{margin-bottom:2rem}
+.sec-label{font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-text-secondary);margin-bottom:1rem;display:flex;align-items:center;gap:8px}
+.sec-label::after{content:'';flex:1;height:0.5px;background:var(--color-border-tertiary)}
+.about-text{font-size:14px;color:var(--color-text-secondary);line-height:1.8;border-left:3px solid #185FA5;padding:12px 16px;background:var(--color-background-secondary);border-radius:0 var(--border-radius-md) var(--border-radius-md) 0}
+.about-text strong{color:var(--color-text-primary)}
+.headline-box{background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:12px 16px;margin-bottom:12px}
+.headline-label{font-size:11px;color:var(--color-text-secondary);margin-bottom:4px;text-transform:uppercase;letter-spacing:0.06em}
+.headline-text{font-size:14px;font-weight:500;color:var(--color-text-primary)}
+.exp-card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1rem 1.25rem;margin-bottom:12px}
+.exp-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:4px;gap:8px}
+.exp-title{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+.exp-date{font-size:12px;color:var(--color-text-secondary);white-space:nowrap;background:var(--color-background-secondary);border-radius:20px;padding:3px 10px;border:0.5px solid var(--color-border-tertiary)}
+.exp-company{font-size:13px;color:#185FA5;font-weight:500;margin-bottom:8px}
+.exp-bullets{list-style:none;padding:0}
+.exp-bullets li{font-size:13px;color:var(--color-text-secondary);padding:3px 0 3px 16px;position:relative;line-height:1.65}
+.exp-bullets li::before{content:'▸';position:absolute;left:0;color:#378ADD;font-size:11px;top:5px}
+.highlight{color:#185FA5;font-weight:500}
+.tags-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.tag{background:#E6F1FB;color:#0C447C;font-size:11px;padding:3px 9px;border-radius:20px;font-weight:500}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px}
+.skill-pill{background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:10px 12px;display:flex;align-items:center;gap:8px}
+.skill-pill i{font-size:16px;color:#185FA5}
+.skill-pill span{font-size:13px;font-weight:500;color:var(--color-text-primary)}
+.proj-card{background:var(--color-background-secondary);border-radius:var(--border-radius-md);border:0.5px solid var(--color-border-tertiary);padding:12px 16px;display:flex;align-items:flex-start;gap:12px}
+.proj-icon{width:40px;height:40px;border-radius:var(--border-radius-md);background:#E6F1FB;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.proj-icon i{font-size:20px;color:#0C447C}
+.proj-name{font-size:14px;font-weight:500;color:var(--color-text-primary);margin-bottom:3px}
+.proj-desc{font-size:12px;color:var(--color-text-secondary);line-height:1.6}
+.edu-item{display:grid;grid-template-columns:76px 1fr;gap:12px;margin-bottom:10px;align-items:start}
+.edu-year{font-size:13px;font-weight:500;color:var(--color-text-secondary);padding-top:2px}
+.edu-degree{font-size:14px;font-weight:500;color:var(--color-text-primary)}
+.edu-school{font-size:12px;color:var(--color-text-secondary)}
+.edu-grade{font-size:12px;color:#185FA5;font-weight:500;margin-top:2px}
+.lang-row{display:flex;flex-wrap:wrap;gap:8px}
+.lang-pill{background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary);border-radius:20px;padding:5px 14px;font-size:13px;color:var(--color-text-primary)}
+</style>
+
+<h2 class="sr-only">Manubolu Nikhil Kumar — recruiter-optimized LinkedIn portfolio</h2>
+
+<div class="hero">
+  <div class="avatar">NK</div>
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;flex-wrap:wrap">
+    <h1 style="margin-bottom:0">Manubolu Nikhil Kumar</h1>
+    <span class="open-badge"><span class="open-dot"></span>Open to work</span>
+  </div>
+  <div class="role">Angular Developer · Frontend Engineer · UI Specialist</div>
+  <div class="company">Infosys · Technology Analyst · Bengaluru, India</div>
+  <div class="stat-row">
+    <div class="stat"><div class="stat-num">4.5</div><div class="stat-label">Yrs experience</div></div>
+    <div class="stat"><div class="stat-num">20%</div><div class="stat-label">Efficiency gain</div></div>
+    <div class="stat"><div class="stat-num">10+</div><div class="stat-label">Technologies</div></div>
+  </div>
+  <div class="badges">
+    <span class="badge">Angular</span>
+    <span class="badge">TypeScript</span>
+    <span class="badge">JavaScript</span>
+    <span class="badge">REST APIs</span>
+    <span class="badge">Node.js</span>
+    <span class="badge">Git</span>
+    <span class="badge">Accessibility</span>
+  </div>
+  <div class="contact-row">
+    <div class="contact-item"><i class="ti ti-phone" aria-hidden="true"></i> +91-8309786208</div>
+    <div class="contact-item"><i class="ti ti-mail" aria-hidden="true"></i> <a href="mailto:nikhilmanubolu@gmail.com">nikhilmanubolu@gmail.com</a></div>
+    <div class="contact-item"><i class="ti ti-map-pin" aria-hidden="true"></i> Bengaluru, India</div>
+  </div>
+</div>
+
+<div class="body">
+
+  <div class="section">
+    <div class="sec-label">Recruiter-optimized headline</div>
+    <div class="headline-box">
+      <div class="headline-label">Paste this as your LinkedIn headline</div>
+      <div class="headline-text">Angular Developer | 4.5 Yrs | TypeScript · REST APIs · Accessibility | Infosys Technology Analyst | Open to Frontend / Full-Stack Roles</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-label">About (paste into LinkedIn)</div>
+    <div class="about-text">
+      🚀 <strong>Angular Developer with 4.5 years of experience</strong> building scalable, high-performance web applications at Infosys — one of India's top IT companies.<br><br>
+      I specialize in <strong>Angular, TypeScript, JavaScript, HTML5, and CSS3</strong>, with hands-on experience integrating REST APIs that have improved application efficiency by <strong>20%</strong>. I've contributed to large-scale government portals (Income Tax Department) and delivered multiple Change Requests on tight timelines without compromising quality.<br><br>
+      💡 What I bring to your team:<br>
+      ✔ Clean, maintainable front-end code in Angular & TypeScript<br>
+      ✔ API integration & real-time data handling<br>
+      ✔ Accessibility (WCAG / screen reader support)<br>
+      ✔ Agile collaboration across cross-functional teams<br>
+      ✔ Strong track record in production-grade delivery<br><br>
+      📍 Based in Bengaluru | Open to on-site, hybrid & remote roles<br>
+      📩 nikhilmanubolu@gmail.com | +91-8309786208
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-label">Work experience</div>
+
+    <div class="exp-card">
+      <div class="exp-header">
+        <div class="exp-title">Technology Analyst</div>
+        <div class="exp-date">Oct 2024 – Present</div>
+      </div>
+      <div class="exp-company"><i class="ti ti-building" style="font-size:13px;vertical-align:-1px;margin-right:4px" aria-hidden="true"></i>Infosys · Bengaluru, India</div>
+      <ul class="exp-bullets">
+        <li>Built and maintained responsive Angular front-end interfaces, improving user experience and page performance</li>
+        <li>Integrated <span class="highlight">dynamic REST APIs</span> for real-time data exchange, boosting application efficiency by <span class="highlight">20%</span></li>
+        <li>Collaborated with cross-functional teams (design, backend, QA) to ship features on schedule in an Agile environment</li>
+        <li>Optimized front-end performance through code reviews, lazy loading, and component-level best practices</li>
+      </ul>
+      <div class="tags-row">
+        <span class="tag">Angular</span><span class="tag">TypeScript</span><span class="tag">REST APIs</span><span class="tag">Agile</span><span class="tag">Performance Optimization</span>
+      </div>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-header">
+        <div class="exp-title">Senior Software Engineer</div>
+        <div class="exp-date">Sep 2021 – Oct 2024</div>
+      </div>
+      <div class="exp-company"><i class="ti ti-building" style="font-size:13px;vertical-align:-1px;margin-right:4px" aria-hidden="true"></i>Infosys · Bengaluru, India</div>
+      <ul class="exp-bullets">
+        <li>Delivered <span class="highlight">multiple Change Requests (CRs)</span> for the Income Tax Department (ITD) portal — a high-traffic government application</li>
+        <li>Improved system functionality by translating complex business requirements into clean Angular UI components</li>
+        <li>Ensured <span class="highlight">WCAG-compliant accessibility</span> by resolving screen reader and keyboard navigation issues</li>
+        <li>Mentored junior developers and contributed to code quality improvements through structured code reviews</li>
+      </ul>
+      <div class="tags-row">
+        <span class="tag">Angular</span><span class="tag">JavaScript</span><span class="tag">HTML5/CSS3</span><span class="tag">Accessibility</span><span class="tag">Bootstrap</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-label">Featured project</div>
+    <div class="proj-card">
+      <div class="proj-icon"><i class="ti ti-building-bank" aria-hidden="true"></i></div>
+      <div>
+        <div class="proj-name">ITD — Income Tax Department Portal</div>
+        <div class="proj-desc">Large-scale government web application serving millions of taxpayers. Contributed to Angular UI development, Change Request delivery, and WCAG accessibility compliance. Worked within Infosys on a high-stakes, production-critical system requiring zero-downtime deployments.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-label">Skills</div>
+    <div class="skills-grid">
+      <div class="skill-pill"><i class="ti ti-brand-angular" aria-hidden="true"></i><span>Angular</span></div>
+      <div class="skill-pill"><i class="ti ti-brand-javascript" aria-hidden="true"></i><span>JavaScript</span></div>
+      <div class="skill-pill"><i class="ti ti-code" aria-hidden="true"></i><span>TypeScript</span></div>
+      <div class="skill-pill"><i class="ti ti-brand-html5" aria-hidden="true"></i><span>HTML5</span></div>
+      <div class="skill-pill"><i class="ti ti-palette" aria-hidden="true"></i><span>CSS3</span></div>
+      <div class="skill-pill"><i class="ti ti-layout-grid" aria-hidden="true"></i><span>Bootstrap</span></div>
+      <div class="skill-pill"><i class="ti ti-brand-nodejs" aria-hidden="true"></i><span>Node.js</span></div>
+      <div class="skill-pill"><i class="ti ti-git-branch" aria-hidden="true"></i><span>Git</span></div>
+      <div class="skill-pill"><i class="ti ti-test-pipe" aria-hidden="true"></i><span>Karma / Jasmine</span></div>
+      <div class="skill-pill"><i class="ti ti-database" aria-hidden="true"></i><span>Basic SQL</span></div>
+      <div class="skill-pill"><i class="ti ti-accessible" aria-hidden="true"></i><span>Accessibility</span></div>
+      <div class="skill-pill"><i class="ti ti-api" aria-hidden="true"></i><span>REST APIs</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-label">Education</div>
+    <div class="edu-item">
+      <div class="edu-year">2021</div>
+      <div>
+        <div class="edu-degree">B.Tech — Electronics & Telecommunication</div>
+        <div class="edu-school">SJC Institute of Technology, Chickballapur</div>
+        <div class="edu-grade">CGPA: 7.0 / 10</div>
+      </div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-year">2017</div>
+      <div>
+        <div class="edu-degree">12th — Andhra Pradesh Board</div>
+        <div class="edu-grade">86.5%</div>
+      </div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-year">2015</div>
+      <div>
+        <div class="edu-degree">10th — Andhra Pradesh Board</div>
+        <div class="edu-grade">85.0%</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-label">Languages</div>
+    <div class="lang-row">
+      <div class="lang-pill">Telugu · Native</div>
+      <div class="lang-pill">English · Full professional</div>
+      <div class="lang-pill">Kannada · Working</div>
+    </div>
+  </div>
+
+</div>
